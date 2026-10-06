@@ -1,0 +1,13 @@
+replicaCount: 2
+image:
+  repository: ghcr.io/example/orders
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+service:
+  port: 80
+containerPort: 8080
+env:
+  SPRING_PROFILES_ACTIVE: default
+resources:
+  requests: {cpu: 100m, memory: 256Mi}
+  limits: {memory: 512Mi}

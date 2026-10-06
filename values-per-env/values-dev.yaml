@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  tag: "1.0.0-SNAPSHOT"
+  pullPolicy: Always
+env:
+  SPRING_PROFILES_ACTIVE: dev
+  LOGGING_LEVEL_ROOT: DEBUG
+resources:
+  requests: {cpu: 50m, memory: 192Mi}
+  limits: {memory: 384Mi}

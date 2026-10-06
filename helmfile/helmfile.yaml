@@ -1,0 +1,17 @@
+environments:
+  dev:
+    values:
+      - env/dev.yaml
+  prod:
+    values:
+      - env/prod.yaml
+---
+releases:
+  - name: orders
+    namespace: orders-{{ .Environment.Name }}
+    chart: ./orders
+    version: 0.1.0
+    values:
+      - replicaCount: {{ .Environment.Values.replicas }}
+        env:
+          SPRING_PROFILES_ACTIVE: {{ .Environment.Name }}
